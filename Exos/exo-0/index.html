@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+        <h1>Exercice 0</h1>
+
+        <script type="text/javascript">
+
+        /* Section 1 */   
+        // declaration de la variable : name
+        var name = "Joe";
+        // declaration de la variable : city
+        var city = 'London';
+        // declaration de la variable : age
+        var age = 32;
+        // declaration de la variable : isRed
+        var isRed = true;
+        // declaration de la variable : isOld
+        var isOld = age > 80;
+        // declaration du tableau variable : previousJobs
+        var previousJobs = ['lawyer', 'developper', 'Professionnal climber'];
+
+        // declaration de la fonction info qui prend en paramètre height et weight
+        function info(height, weight) {
+            // declaration de l'opérateur logique if qui va vérifier si height est supérieur  à 180
+            if (height > 180) {
+                console.log('Vous êtes grand');
+            }
+            // declaration de l'opérateur logique if qui va vérifier si weight est inférieur  à 0
+            if (weight < 0) {
+                console.log('oups, there is a problem');
+                // declaration de l'opérateur logique else if qui va vérifier si weight est inférieur  à 15
+            } else if ( weight < 15) {
+                console.log('Are you that slim ?')
+                // declaration de l'opérateur logique else qui ne verifie aucune condition
+            } else {
+                console.log('Good !')
+            }
+        }
+        // execution de la fonction info avec 165 et 45 en parametre
+        info(165, 45);
+        // declaration de la variable myHeight initialiser à 175
+        var myHeight = 175;
+        // declaration de la variable myWeight initialiser à 86
+        var myWeight = 86;
+        // execution de la fonction info avec les variable myWeight et myHeight passez en parametre
+        info(myHeight, myWeight);
+        // execution de la fonction info avec les variable myWeight et myHeight passez en parametre
+        info(myHeight + 15, myWeight - 100);
+        // declaration de la function toUpper
+        function toUpper(variable) {
+            return variable.toUpperCase();
+        }
+        // declaration de la variable upperName
+        var upperName = toUpper(name);
+        //declaration d'une boucle for
+        for (i = 0; i < 3; i = i + 1) {
+            console.log(previousJobs[i]);
+        }
+
+        /* Section 2: */
+
+        // afficher la ville dans laquele Joe vit.
+        document.write('ville : ' + city + '<br>');
+
+        // afficher si Joe est roux ou pas.
+        document.write('red : ' + isRed);
+        /* Section 3 */
+
+        console.log(myVariable);
+
+        </script>
+
+    </body>
+</html>

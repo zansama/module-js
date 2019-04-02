@@ -7,6 +7,7 @@ var resultArray = [];
 
 var input = input.split('');
 console.log(input);
+
 // for (let i = 0; i < input.length; i++){
 //     for (let j = 0; j < voyels.length; j++){
 //         if (input[i] === voyels[j]){

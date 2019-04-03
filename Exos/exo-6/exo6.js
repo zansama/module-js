@@ -97,7 +97,7 @@ function oldPlayer() {
 
 function sortPlayerAlphabetically(){
     team._player.sort(function (a, b) {
-        var nameA=a.lastName.toLowerCase(), nameB=b.lastName.toLowerCase()
+        var nameA=a.firstName.toLowerCase(), nameB=b.firstName.toLowerCase()
         if (nameA < nameB) //sort string ascending
             return -1
         if (nameA > nameB)

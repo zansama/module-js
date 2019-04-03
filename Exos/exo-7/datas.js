@@ -13,7 +13,8 @@ var jsonDatas=[
 		"quantity" : 0
 	},{
 		"name" :"Villa sur la plage",
-		"type" : "house",
+		"type" : "hou" +
+			"se",
 		"description" : "Quelle belle vue",
 		"price" : 870000,
 		"quantity" : 1

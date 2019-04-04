@@ -129,4 +129,4 @@ function showContact() {
 
 
 trad();
-// showContact();
+showContact();

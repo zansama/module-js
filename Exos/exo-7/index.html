@@ -17,8 +17,9 @@
 
 			<input type="text" name="message" >
 			<input	type="button" onClick="search()" value="search">
-			<input type="checkbox" id="myCheck" onClick="search()" value="stock">
-			<select id="sort" onChange="sortItems()">
+			<input type="checkbox" id="myCheck"  value="stock">
+			<select id="sort" onChange="search()">
+				<option value="0"> please choose an option</option>
 				<option value="1">alphabetic croissant</option>
 				<option value="2">alphabetic décroissant</option>
 				<option value="3">prix croissant</option>
@@ -39,6 +40,13 @@
 			<input type="number" name="price">
 			<label>quantity</label>
 			<input type="number" name="quantity">
+			<h2>contact</h2>
+			<label>firstname</label>
+			<input type="text" name="firstname">
+			<label>lastname</label>
+			<input type="text" name="lastname">
+			<label>address</label>
+			<input type="text" name="address">
 			<input type="button" onClick="addItem()" value="create">
 		</form>
 		</div>

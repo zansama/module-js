@@ -1,46 +1,135 @@
 <!doctype html>
-<html  lang="fr">
-    <head>
-        <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<script src="datas.js"></script>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="datas.js"></script>
 
 
-    </head>
-    <body>
-		<div class="container-fluid">
-			<h1>Exercice 7</h1>
-			
-			<ul class="nav nav-tabs"  role="tablist">
-			  <li class="nav-item"><a class="nav-link active" id="table-tab-nav" data-toggle="tab"  role="tab"  href="#table-tab" aria-controls="table-tab" aria-selected="true">Catalog</a></li>
-			</ul>
+</head>
+<body>
+<div class="container-fluid">
+    <h1>Exercice 7</h1>
 
-			<div class="tab-content">
-				<div id="table-tab" role="tabpanel" class="tab-pane fade show active" aria-labelledby="table-tab-nav">
-					<br/>
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Nom</th>
-								<th>Description</th>
-								<th>Type</th>
-								<th>Prix</th>
-								<th>Quantité</th>
-							</tr>
-						</thead>
-						<tbody id="bodyCatalog">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item"><a class="nav-link active" id="table-tab-nav" data-toggle="tab" role="tab"
+                                href="#table-tab" aria-controls="table-tab" aria-selected="true">Catalog</a></li>
+        <li class="nav-item"><a class="nav-link " id="table-cart-nav" data-toggle="tab" role="tab"
+                                href="#table-cart" aria-controls="table-cart" aria-selected="false">panier</a></li>
+    </ul>
 
-						</tbody>		
-					</table>
-				</div>
-				
+    <div class="tab-content">
+        <div id="table-tab" role="tabpanel" class="tab-pane fade show active" aria-labelledby="table-tab-nav">
+            <div class="container mt-2">
+                <form name="sortItem">
 
-			</div>			
-		</div>
-		<script src="exo7.js"></script>
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	</body>
+                    <div class="form-group">
+                        <select class="form-control" id="sort">
+                            <option value="0">Faite votre choix</option>
+                            <option value="1">trier par nom a-Z</option>
+                            <option value="2">trier par nom z-A</option>
+                            <option value="3">trier par prix croissant</option>
+                            <option value="4">trier par prix décroissant</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary btn-lg" onClick="sortItems()">trier</button>
+                    </div>
+                </form>
+                <form name="searchItem" class="mt-3">
+
+                    <div class="form-group">
+                        <select class="form-control" id="searchItems">
+                            <option value="0">Faite votre choix</option>
+                            <option value="1">car</option>
+                            <option value="2">house</option>
+                            <option value="3">game</option>
+                            <option value="4">videoGame</option>
+                            <option value="5">show</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary btn-lg" onClick="search()">chercher</button>
+                    </div>
+                </form>
+            </div>
+            <br/>
+            <table class="table table-striped" id="catalog">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                </tr>
+                </thead>
+
+            </table>
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-primary btn-lg" onClick="cart()">ajouter au panier</button>
+            </div>
+            <div class="container">
+                <form name="Item" class="mb-5">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Nom</label>
+                        <input type="text" class="form-control" name="name" id="exampleFormControlInput1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Description</label>
+                        <input type="text" class="form-control" name="description" id="exampleFormControlInput1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Type</label>
+                        <input type="text" class="form-control" name="type" id="exampleFormControlInput1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Prix</label>
+                        <input type="number" class="form-control" name="price" id="exampleFormControlInput1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Quantité</label>
+                        <input type="number" class="form-control" name="quantity" id="exampleFormControlInput1">
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary btn-lg" onClick="addItem()">Ajouter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="table-cart" role="tabpanel" class="tab-pane fade " aria-labelledby="table-cart-tab-nav">
+
+
+            <br/>
+            <table class="table table-striped" id="itemCart">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                </tr>
+                </thead>
+
+            </table>
+        </div>
+        </div>
+    </div>
+
+</div>
+<script src="exo7.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
 </html>

@@ -33,7 +33,7 @@ function search() {
                     if (item.quantity > 0) {
                         response.push(item);
                         console.log(sortItems(response));
-                    }
+                    },
                 });
             } else if (type.type === message) {
                 type.items.forEach(function (item) {
